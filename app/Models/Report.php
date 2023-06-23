@@ -11,7 +11,14 @@ class Report extends Model
 
     protected $fillable = [
         'title',
-        'user_id'
+        'user_id',
+        'name',
+        'supervisor_name',
+        'degree_name',
+        'address',
+        'dob',
+        'matrices_no',
+        'absctract'
     ];
 
     public function user()

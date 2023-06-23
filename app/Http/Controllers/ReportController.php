@@ -43,9 +43,12 @@ class ReportController extends Controller
     public function update(Request $request, Report $report): RedirectResponse
     {
         $request->validate([
-            'title' => 'required'
+            'title' => 'required',
+            
         ]);
         
+        $request->address = html_entity_decode($request->address);
+
         $report->update($request->all());
         
         return redirect()->route('home')
