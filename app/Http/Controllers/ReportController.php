@@ -47,7 +47,7 @@ class ReportController extends Controller
             
         ]);
         
-        $request->address = html_entity_decode($request->address);
+        //$request->address = html_entity_decode($request->address);
 
         $report->update($request->all());
         

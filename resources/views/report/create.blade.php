@@ -56,9 +56,43 @@
                         <div class="row mb-3">
                             <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
                             <div class="col-md-6">
-                                <textarea rows="5" class="form-control" @error('address') is-invalid @enderror" name="address" value="{{ old('degree_name') }}" required autocomplete="degree_name" autofocus></textarea>
+                                <textarea id="address" rows="5" class="form-control" @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus></textarea>
                                 
                                 @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="dob" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
+                            <div class="col-md-6">
+                                <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('degree_name') }}" required autocomplete="dob" autofocus>
+                                @error('dob')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="matrices_no" class="col-md-4 col-form-label text-md-end">{{ __('Matrices No.') }}</label>
+                            <div class="col-md-6">
+                                <input id="matrices_no" type="text" class="form-control @error('matrices_no') is-invalid @enderror" name="matrices_no" value="{{ old('matrices_no') }}" required autocomplete="matrices_no" autofocus>
+                                @error('matrices_no')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="absctract" class="col-md-4 col-form-label text-md-end">{{ __('Absctract') }}</label>
+                            <div class="col-md-6">
+                                <textarea id="absctract" rows="5" class="form-control" @error('absctract') is-invalid @enderror" name="absctract" value="{{ old('absctract') }}" required autocomplete="absctract" autofocus>{!! nl2br($report->absctract) !!}</textarea>
+                                
+                                @error('absctract')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -79,4 +113,14 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script>
+    $(function() {
+        $('#address').summernote();
+        $('#absctract').summernote();
+    });
+</script>
 @endsection
